@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="content">
+  <div class="title">Participants</div>
+  <form method="post" action="/participants/new">
+    <div class="formField">
+      <span class="labelText">Name</span>
+      <input type="text" name="name" />
+    </div>
+    <div class="formField">
+      <span class="labelText">Age</span>
+      <input type="text" name="age" />
+    </div>
+    <div class="formField">
+      <span class="labelText">Number of Siblings</span>
+      <input type="text" name="siblings" />
+    </div>
+    <div class="formField">
+      <span class="labelText">
+        Environmental Exposures
+        <span class="instructions">(place each on a separate line)</span>
+      </span>
+      <textarea name="exposures"></textarea>
+    </div>
+    <div class="formField">
+      <span class="labelText">
+        Genetic Mutations
+        <span class="instructions">(place each on a separate line)</span>
+      </span>
+      <textarea name="mutations"></textarea>
+    </div>
+    {% csrf_token %}
+    <input type="submit" class="submit" value="Submit" />
+  </form>
+</div>
+{% endblock content %}

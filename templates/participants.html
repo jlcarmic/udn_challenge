@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="participants">
+  {% if not participants %}
+  <div class="empty">No participants currently enrolled</div>
+  {% endif %}
+  {% for participant in participants %}
+  <div class="participant">
+    <form method="post" action="/participants/update">
+      <input type="hidden" name="id" value="{{ participant.id }}" />
+      <label for="status">Status:</label>
+      <select name="status" value="{{ participant.status }}">
+        {% if participant.status == "NOTREVIEWED" %}
+        <option value="NOTREVIEWED" selected>Not Reviewed</option>
+        {% else %}
+        <option value="NOTREVIEWED">Not Reviewed</option>
+        {% endif %}
+        {% if participant.status == "ACCEPTED" %}
+        <option value="ACCEPTED" selected>Reviewed - Accepted</option>
+        {% else %}
+        <option value="ACCEPTED">Reviewed - Accepted</option>
+        {% endif %}
+        {% if participant.status == "NOTACCEPTED" %}
+        <option value="NOTACCEPTED" selected>Reviewed - Not Accepted</option>
+        {% else %}
+        <option value="NOTACCEPTED">Reviewed - Not Accepted</option>
+        {% endif %}
+      </select>
+      {% csrf_token %}
+      <input type="submit" value="Update" />
+    </form>
+    <div class="demo">
+      <div class="label">Name:</div>
+      <div>{{ participant.name }}</div>
+    </div>
+    <div class="demo">
+      <div class="label">Age:</div>
+      <div>{{ participant.age }}</div>
+    </div>
+    <div class="demo">
+      <div class="label">Num Siblings:</div>
+      <div>{{ participant.siblings }}</div>
+    </div>
+    <div class="demo col">
+      <div class="label">Environmental Exposures:</div>
+      <div class="list">
+        {% for exposure in participant.get_exposures %}
+        <div>{{exposure}}</div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="demo col">
+      <div class="label">Genetic Mutations:</div>
+      <div class="list">
+        {% for mutation in participant.get_mutations %}
+        <div>{{mutation}}</div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock content %}

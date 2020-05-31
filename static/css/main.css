@@ -1,0 +1,87 @@
+.content {
+  margin: 20px auto;
+  text-align: center;
+  width: 30%;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.formField {
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.labelText {
+  font-size: 16px;
+  left: 8px;
+  position: absolute;
+  top: -24px;
+}
+
+.instructions {
+  font-size: 12px;
+}
+
+.submit,
+input[type="text"],
+textarea {
+  border-radius: 8px;
+  padding: 5px 8px;
+}
+
+input[type="text"], textarea {
+  font-size: 20px;
+  width: 100%;
+  outline: none;
+}
+
+textarea {
+  height: 90px;
+}
+
+.submit {
+  font-size: 24px;
+}
+
+.participants {
+  margin: 20px auto;
+  width: 50%;
+}
+
+.participant {
+  border: 1px solid black;
+  border-radius: 8px;
+  margin: 10px 0;
+  padding: 8px;
+}
+
+.demo {
+  display: flex;
+  flex-direction: row;
+  margin: 5px 0;
+}
+
+.label,
+label {
+  font-weight: 600;
+  margin-right: 5px;
+}
+
+.col {
+  flex-direction: column;
+}
+
+.list {
+  padding-left: 10px;
+}
+
+.empty {
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+}
